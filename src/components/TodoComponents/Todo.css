@@ -1,0 +1,9 @@
+.todo-entry {
+    font-size: 2rem;
+}
+
+.todo-entry.completed {
+    font-size: 2rem;
+    text-decoration: line-through;
+    color: darkslategray;
+}

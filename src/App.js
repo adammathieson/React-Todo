@@ -2,6 +2,7 @@ import React from 'react';
 
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
+import "./components/TodoComponents/Todo.css";
 
 class App extends React.Component {
   constructor() {
@@ -22,7 +23,7 @@ addTask = e => {
       id: Date.now(),
       completed: false
   };
-console.log(newTask);
+
   this.setState({
       todos: [...this.state.todos, newTask],
       inputText: '',
@@ -36,6 +37,27 @@ handleChanges = e => {
       inputText: e.target.value
   });
 };
+
+toggleTask = todoId => {
+  this.setState({
+    todos: this.state.todos.map(item => {
+      if(todoId === item.id) {
+        return {
+          ...item,
+          completed: !item.completed
+        };
+      }
+      return item;
+    })
+  });
+};
+
+clearTodo = e => {
+  e.preventDefault();
+  this.setState({
+
+  })
+}
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -43,8 +65,11 @@ handleChanges = e => {
     return (
       <div>
         <h2>Todo List</h2>
-        <TodoList todos={this.state.todos}/>
-        <TodoForm 
+        <TodoList
+        todos={this.state.todos}
+        toggleTask={this.toggleTask}
+        />
+        <TodoForm
         inputText={this.state.inputText}
         addTask={this.addTask}
         handleChanges={this.handleChanges}

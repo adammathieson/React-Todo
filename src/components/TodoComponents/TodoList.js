@@ -4,12 +4,15 @@ import Todo from './Todo';
 
 const TodoList = props => {
     return (
-        <ul>
-            {props.todos.map(todo => <Todo 
-            todo={todo}
-            key={todo.id}
-            />)}
-        </ul>
+        <div className="todo-list">
+            {/* .todos is props for render() in App.js */}
+            {props.todos.map(item => <Todo
+                todo={item}
+                key={item.id}
+                toggleTask={props.toggleTask}
+            />
+            )}
+        </div>
     )
 }
 
