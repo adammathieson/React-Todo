@@ -10,16 +10,19 @@ const TodoForm = props => {
                 onChange={props.handleChanges}
                 placeholder="...todos"
             />
-            <input 
+            <button
                 type="submit"
                 value="Add todo"
-                name="submit"
-            />
-            <input
+                name="submit">
+                Add Todo
+            </button>
+            <button 
                 type="submit"
                 value="Clear Completed"
                 name="clear"
-            />
+                onClick={props.clearTodos}>
+                Clear Completed
+            </button>
         </form>
     )
 }

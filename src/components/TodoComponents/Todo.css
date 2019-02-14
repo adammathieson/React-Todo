@@ -1,5 +1,6 @@
 .todo-entry {
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .todo-entry.completed {

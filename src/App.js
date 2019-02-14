@@ -9,9 +9,9 @@ class App extends React.Component {
     super();
     this.state = {
         todos: [],
-        inputText: '',
-        id: '',
-        completed: ''
+        // inputText: '',
+        // id: '',
+        // completed: ''
     }
 }
 
@@ -52,15 +52,13 @@ toggleTask = todoId => {
   });
 };
 
-clearTodo = e => {
+clearTodos = e => {
   e.preventDefault();
   this.setState({
+    todos: this.state.todos.filter(item => !item.completed)
+  });
+};
 
-  })
-}
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
       <div>
@@ -73,6 +71,7 @@ clearTodo = e => {
         inputText={this.state.inputText}
         addTask={this.addTask}
         handleChanges={this.handleChanges}
+        clearTodos={this.clearTodos}
         />
       </div>
     );
